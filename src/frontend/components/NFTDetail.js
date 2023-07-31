@@ -71,6 +71,13 @@ export default function NFTDetail({ marketplace, nft, account }) {
     setLoading(false)
     setNFTItem(item)
   }
+
+//   const getBalance = async (address) => {
+//     const provider = new ethers.providers.Web3Provider(window.ethereum);
+//     const balance = await provider.getBalance(address);
+//     const balanceInEth = ethers.utils.formatEther(balance);
+//     console.log(balanceInEth);
+// }
   const buyMarketItem = async () => {
     await (
       await marketplace.purchaseItem(nftItem.itemId, { value: nftItem.price })
@@ -93,7 +100,7 @@ export default function NFTDetail({ marketplace, nft, account }) {
       event: "BuyItem",
       currentPrice:ethers.utils.formatEther(buyEvent.args[3]),
       fromAccount:buyEvent.args[4],
-      toAccount:buyEvent.args[1],
+      toAccount:buyEvent.args[5],
       time:"date",
     }
     console.log("buyTrans",buyTrans)
@@ -157,6 +164,7 @@ export default function NFTDetail({ marketplace, nft, account }) {
     console.log(time)
 
   }
+ 
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
@@ -210,11 +218,11 @@ export default function NFTDetail({ marketplace, nft, account }) {
                       <Card.Footer>
                         <div className="d-grid">
                           <Button
-                            onClick={() => buyMarketItem(nftItem)}
+                            onClick={ () => buyMarketItem(nftItem)}
                             variant="primary"
                             size="lg"
                           >
-                            Buy for {ethers.utils.formatEther(nftItem.price)} ETH
+                            Buy for {ethers.utils.formatEther(nftItem.price)} ETH 
                           </Button>
                         </div>
                       </Card.Footer>

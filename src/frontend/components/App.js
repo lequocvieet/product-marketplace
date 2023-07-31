@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navigation from './Navbar'
 import Home from './Home.js'
 import Create from './Create.js'
+import Footer  from './Footer'
 import { useEffect } from 'react';
 import Inventory from './Inventory.js'
 import NFTDetail from './NFTDetail.js'
@@ -152,8 +153,17 @@ function App() {
             </Routes>
           )}
         </div>
+       
       </div>
+     <div className='App-footer'>
+      <Footer></Footer>
+     </div>
     </BrowserRouter>
+  
+   
+
+    
+
   )
 }
 

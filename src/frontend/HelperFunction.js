@@ -35,6 +35,7 @@ let eventData=[];
 
 
 export function getShortAddress(address) {
+  console.log("address",address)
   if (!address) return "no owner";
   return address.slice(0, 5) + "..." + address.slice(38);
 }
@@ -137,7 +138,7 @@ export async function fetchAllEvent(itemId,nft,marketplace){
     event: "Buy Item",
     currentPrice:ethers.utils.formatEther(latestEvent2.args[3]),
     fromAccount:latestEvent2.args[4],
-    toAccount:latestEvent2.args[0],
+    toAccount:latestEvent2.args[5],
     time:renderTime(await getEventTimestamp(latestEvent2)),
   }
   eventData.push(buyTrans);

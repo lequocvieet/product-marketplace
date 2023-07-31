@@ -10,10 +10,8 @@ module.exports = {
   },
   networks: {
     sepolia: {
-      url: "https://sepolia.infura.io/v3/2e5775eb41aa490991bff9eb183e1122",
-      accounts: [
-        "0a6bbab2d0fb0d7b049ae0d8de395f4cfe9c3783ad302c56f21676fcc34f4fbe",
-      ],
-    }
+      url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      accounts: [process.env.SEPOLIA_PRIVATE_KEY],
+    },
   },
 };
