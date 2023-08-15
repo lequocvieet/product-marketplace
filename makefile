@@ -2,6 +2,7 @@ runnode:
 	npx hardhat node
 
 deploy:
+
 	npx hardhat run src/contract/scripts/deploy.js --network localhost
 
 deploy-sepolia:
